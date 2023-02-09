@@ -97,7 +97,7 @@ readConsole = do
         Just num -> putStrLn $ printf "The sum is %d" num
   where
     stringToDigitMap :: String -> [Maybe Int]
-    stringToDigitMap = map (\x -> readMaybeIntegral [x])
+    stringToDigitMap = map $ readMaybeIntegral . (: [])
 
     doDigitSum :: (Read i, Integral i) => [Maybe i] -> Maybe i
     doDigitSum digitMap
