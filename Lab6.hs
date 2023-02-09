@@ -15,7 +15,7 @@ _toLitValues _ _ _ = Nothing
 
 eval :: Expr -> Maybe Int
 eval (Lit n) = Just n
-eval (Div e1 (Lit 0)) = Nothing
+eval (Div _ (Lit 0)) = Nothing
 eval (Add e1 e2) = _toLitValues (+) (eval e1) (eval e2)
 eval (Sub e1 e2) = _toLitValues (-) (eval e1) (eval e2)
 eval (Mul e1 e2) = _toLitValues (*) (eval e1) (eval e2)
